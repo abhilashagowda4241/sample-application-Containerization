@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app
+  namespace: team-alpha  # Ensure this namespace exists in your EKS cluster
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+      - name: sample-app
+        # Replace the SHA with your actual latest ECR tag from the GitHub Action logs
+        image: 731471209315.dkr.ecr.ap-south-1.amazonaws.com/sample-application:96f3fd5a909d736d64d6f1d3ed8fdec40c85da61
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"
