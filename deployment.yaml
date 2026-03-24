@@ -16,7 +16,7 @@ spec:
       containers:
       - name: sample-app
         # Replace the SHA with your actual latest ECR tag from the GitHub Action logs
-        image: 731471209315.dkr.ecr.ap-south-1.amazonaws.com/sample-application:572fc1fdb3c90d6e86c4a3e86766e2fab580008c
+        image: 731471209315.dkr.ecr.ap-south-1.amazonaws.com/sample-application:0a9fefdf737e1ad4257095f5532b78399d2b3ff1
         ports:
         - containerPort: 3000
         resources:
